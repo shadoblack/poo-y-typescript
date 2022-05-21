@@ -1,5 +1,13 @@
+//interface (no es obligatorio,pero lo hace mas estricto)
+interface CamisetaBase{
+    setColor(color);
+    getColor();
+}
+
+
+
 //clase (molde del objeto)
-class Camiseta {
+ class Camiseta implements CamisetaBase {
   //propiedades (caracteristicas del objeto)
   private color: string;
   public modelo: string;
@@ -45,4 +53,27 @@ var camiseta = new Camiseta("rojo","manga larga","adidas","L",10);
 // playera.talla = "XL";
 // playera.precio = 5;
 
+// console.log(camiseta);
+
+
 console.log(camiseta);
+
+
+//Clase hija
+
+class Sudadera extends Camiseta{
+    public capucha: boolean;
+
+    setCapucha(capucha:boolean){
+        this.capucha = capucha;
+    }
+
+    getCapucha():boolean{
+        return this.capucha;
+    }
+}
+
+var sudadera_nike = new Sudadera("rojo","manga larga","nike","L",80);
+sudadera_nike.setCapucha(true);
+sudadera_nike.setColor("negra");
+console.log(sudadera_nike);
