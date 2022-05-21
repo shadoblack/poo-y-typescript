@@ -4,9 +4,18 @@ interface CamisetaBase{
     getColor();
 }
 
+//Decorador
 
+function estampar(logo: string){
+    return function(target: Function){
+        target.prototype.estampacion = function():void{
+            console.log("Camiseta estampada con el logo de: "+logo)
+        }
+    }
+}
 
 //clase (molde del objeto)
+@estampar('Nike')
  class Camiseta implements CamisetaBase {
   //propiedades (caracteristicas del objeto)
   private color: string;
